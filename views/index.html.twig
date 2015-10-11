@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hair Salon</title>
+    </head>
+    <body>
+        <h1>Add your Stylist</h1>
+
+        {% for stylist in stylists %}
+        <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName() }}</a></li>
+        {% endfor %}
+        <br/>
+
+        <form action="/" method="post">
+            <label for="stylist_name">Add stylist's name</label>
+            <input id="stylist_name" name="stylist_name" type="text">
+            <button type="submit">Add Stylist!</button>
+        </form>
+
+    </body>
+</html>

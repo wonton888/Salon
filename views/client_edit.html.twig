@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Update this Stylist's clients</title>
+    </head>
+    <body>
+        <div class="container">
+            <form action="/client/{{ client.getId }}" method="post">
+
+                <label for="new_client">Edit you Client's name</label>
+                <input type="new_client" name="new_client" type="text">
+
+                <button type="submit">Update</button>
+            </form>
+
+            <form  action="/client/{{ client.getId }}" method="post">
+                <input type="_method" name="name" value="delete">
+
+                <button type="submit">Delete!</button>
+
+            </form>
+            <a href="/">Home</a>
+        </div>
+
+    </body>
+</html>
