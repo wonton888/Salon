@@ -92,6 +92,55 @@
 
         }
 
+        function test_find()
+        {
+            $id = null;
+            $name = "Stylist A";
+            $test_stylist = new Stylist($id, $name);
+            $test_stylist->save();
+
+            $name2 = "Stylist B";
+            $test_stylist2 = new Stylist($id, $name);
+            $test_stylist2->save();
+
+            $result = Stylist::find($test_stylist->getId());
+
+            $this->assertEquals($test_stylist, $result);
+        }
+
+        function test_update()
+        {
+            $id = null;
+            $name = "Stylist A";
+            $test_stylist = new Stylist($id, $name);
+            $test_stylist->save();
+
+            $new_name = "Stylist X";
+
+            $test_stylist->update($new_name);
+
+            $result = $test_stylist->getName();
+            $this->assertEquals($new_name, $result);
+        }
+
+        function test_delete()
+        {
+            $id = null;
+            $name = "Stylist A";
+            $test_stylist = new Stylist($id, $name);
+            $test_stylist->save();
+
+            $name2 = "Stylist B";
+            $test_stylist2 = new Stylist($id, $name2);
+            $test_stylist2->save();
+
+            $test_stylist->delete();
+
+            $result = Stylist::getAll();
+            $this->assertEquals([$test_stylist2], $result);
+
+        }
+
     }
 
 
