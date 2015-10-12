@@ -11,7 +11,7 @@
 
         <h3>Add a client to your hair stylist.</h3>
 
-        <form action="/stylist/{id}/add_client" method="post">
+        <form action="/stylists/{{ stylist.getId() }}/add_client" method="post">
             <input id="stylist_id" name="stylist_id"  type="hidden" value="{{ stylist.getId() }}">
 
             <label for="client_name">Add Client's Name</label>

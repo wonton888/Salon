@@ -4,10 +4,10 @@ class Stylist
      private $id;
      private $name;
 
-     function __construct($name, $id = NULL)
+     function __construct($new_name, $new_id = NULL)
      {
-         $this->name = $name;
-         $this->id = $id;
+         $this->name = $new_name;
+         $this->id = $new_id;
      }
 
      function getId()
@@ -39,7 +39,7 @@ class Stylist
          foreach ($returned_stylists as $stylist){
              $id = $stylist['id'];
              $name = $stylist['name'];
-             $new_stylist = new Stylist($id, $name);
+             $new_stylist = new Stylist($name, $id);
              array_push($stylists, $new_stylist);
          }
          return $stylists;

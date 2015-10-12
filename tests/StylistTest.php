@@ -23,7 +23,7 @@
         {
             $id  = null;
             $name = "Stylist A";
-            $test_stylist = new Stylist($id, $name);
+            $test_stylist = new Stylist($name, $id);
             $test_stylist->save();
 
             $result = $test_stylist->getName();
@@ -35,7 +35,7 @@
         {
             $id = null;
             $name = "Stylist A";
-            $test_stylist = new Stylist($id, $name);
+            $test_stylist = new Stylist($name, $id);
             $test_stylist->save();
             $new_name = "Stylist B";
 
@@ -49,7 +49,7 @@
         {
             $id = null;
             $name = "Stylist A";
-            $test_stylist = new Stylist($id, $name);
+            $test_stylist = new Stylist($name, $id);
 
             $test_stylist->save();
 
@@ -62,11 +62,11 @@
         {
             $id = null;
             $name = "Stylist A";
-            $test_stylist = new Stylist($id, $name);
+            $test_stylist = new Stylist($name, $id);
             $test_stylist->save();
 
             $name2 = "Stylist B";
-            $test_stylist2 = new Stylist($id, $name2);
+            $test_stylist2 = new Stylist($name);
             $test_stylist2->save();
 
             $result = Stylist::getAll();
@@ -78,11 +78,11 @@
         {
             $id = null;
             $name = "Stylist A";
-            $test_stylist = new Stylist($id, $name);
+            $test_stylist = new Stylist($name, $id);
             $test_stylist->save();
 
             $name2 = "Stylist B";
-            $test_stylist2 = new Stylist($id, $name2);
+            $test_stylist2 = new Stylist($name);
             $test_stylist2->save();
 
             Stylist::deleteAll();
@@ -96,11 +96,11 @@
         {
             $id = null;
             $name = "Stylist A";
-            $test_stylist = new Stylist($id, $name);
+            $test_stylist = new Stylist($name, $id);
             $test_stylist->save();
 
             $name2 = "Stylist B";
-            $test_stylist2 = new Stylist($id, $name);
+            $test_stylist2 = new Stylist($name, $id);
             $test_stylist2->save();
 
             $result = Stylist::find($test_stylist->getId());
@@ -112,7 +112,7 @@
         {
             $id = null;
             $name = "Stylist A";
-            $test_stylist = new Stylist($id, $name);
+            $test_stylist = new Stylist($name, $id);
             $test_stylist->save();
 
             $new_name = "Stylist X";
@@ -127,11 +127,11 @@
         {
             $id = null;
             $name = "Stylist A";
-            $test_stylist = new Stylist($id, $name);
+            $test_stylist = new Stylist($name, $id);
             $test_stylist->save();
 
             $name2 = "Stylist B";
-            $test_stylist2 = new Stylist($id, $name2);
+            $test_stylist2 = new Stylist($name);
             $test_stylist2->save();
 
             $test_stylist->delete();

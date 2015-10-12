@@ -9,7 +9,7 @@
     $app = new Silex\Application();
     $app['debug'] = true;
 
-    $server = 'mysql:host=localhost;db=salon_test';
+    $server = 'mysql:host=localhost;dbname=salon';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -36,35 +36,35 @@
       return $app['twig']->render('index.html.twig', array('stylists'=> Stylist::getAll()));
     });
 
-    $app->get("/stylist/{id}", function($id) use ($app){
+    $app->get("/stylists/{id}", function($id) use ($app){
       $stylist = Stylist::find($id);
       return $app['twig']->render('stylist.html.twig', array('stylist'=> $stylist, 'clients'=>$stylist->getClients()));
     });
 
-    $app->get("/stylist/{id}/edit", function($id) use ($app){
+    $app->get("/stylists/{id}/edit", function($id) use ($app){
       $stylist = Stylist::find(id);
       return $app['twig']->render('stylist_edit.html.twig', array('stylist' => $stylist));
     });
 
-    $app->patch ("/stylist/{id}/update", function($id) use ($app){
+    $app->patch ("/stylists/{id}/update", function($id) use ($app){
       $stylist = Stylist::find($id);
       $name = $_POST['name'];
       $stylist->update($name);
       return $app['twig']->render('stylist.html.twig', array('stylist'=> $stylist, 'clients'=>$stylist->getClients()));
     });
 
-    $app->delete("/stylist/{id}/delete", function($id) use ($app){
+    $app->delete("/stylists/{id}/delete", function($id) use ($app){
       $stylist = Stylist::find($id);
       $stylist->delete();
       return $app['twig']->render('index.html.twig', array('stylists'=> Stylist::getAll()));
     });
 
-    $app->post("/stylist/{id}/add_client", function() use ($app){
-      $name = $_POST['name'];
+    $app->post("/stylists/{id}/add_client", function($id) use ($app){
       $stylist_id = $_POST['stylist_id'];
+      $stylist = Stylist::find($id);
       $client = new Client($id = null, $_POST['client_name'], $stylist_id);
       $client->save();
-      $stylist = Stylist::find($stylist_id);
+      $client_name = $_POST['client_name'];
       return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients'=>$stylist->getClients()));
     });
 
