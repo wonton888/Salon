@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
         <title>Hair Salon</title>
     </head>
     <body>
@@ -12,10 +11,14 @@
         {% endfor %}
         <br/>
 
-        <form action="/" method="post">
-            <label for="stylist_name">Add stylist's name</label>
-            <input id="stylist_name" name="stylist_name" type="text">
+        <form action="/stylists" method="post">
+            <label for="name">Add stylist's name</label>
+            <input id="name" name="name" type="text">
             <button type="submit">Add Stylist!</button>
+        </form>
+
+        <form action="/delete_stylists" method="post">
+          <button type='submit'>Clear</button>
         </form>
 
     </body>

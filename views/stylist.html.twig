@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
         <title>Clients</title>
     </head>
     <body>
         <h1>{{ stylist.getName() }}</h1>
         {% for client in clients %}
-        <li>Client listed: <a href="/client/{{ client.getClientId }}/edit">{{ client.getClientName() }}</a></li>
+        <li>Client listed: <a href="/client/{{ client.getId }}/edit">{{ client.getName() }}</a></li>
         {% endfor %}
 
         <h3>Add a client to your hair stylist.</h3>
 
-        <form action="/clients" method="post">
+        <form action="/stylist/{id}/add_client" method="post">
             <input id="stylist_id" name="stylist_id"  type="hidden" value="{{ stylist.getId() }}">
 
             <label for="client_name">Add Client's Name</label>
@@ -20,9 +19,13 @@
             <button type="submit" name="button">Add Client's name</button>
         </form>
 
+        <form action="/delete_clients" method="post">
+          <button type="submit" name="button">Clear</button>
+        </form>
+
         <p>
             <a href="/">Home</a>
-            <a href="/stylists/{{ stylist.getId }}/edit">Edit this Stylist!</a>
+            <a href="/stylist/{{ stylist.getId }}/edit">Edit this Stylist!</a>
         </p>
     </body>
 </html>
