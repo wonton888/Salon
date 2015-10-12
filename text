@@ -1,0 +1,8 @@
+epicodus-219:Salon Guest$ phpunit tests
+PHPUnit 4.5.1 by Sebastian Bergmann and contributors.
+
+..............
+
+Time: 80 ms, Memory: 2.75Mb
+
+OK (14 tests, 14 assertions)
