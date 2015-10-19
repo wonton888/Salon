@@ -113,6 +113,24 @@
 
         }
 
+        function test_update()
+        {
+          $id = null;
+          $name = "Client A";
+          $stylist_id = 1;
+          $test_client = new Client($id, $name, $stylist_id);
+          $test_client->save();
+
+          $new_name = "Client B";
+
+          $test_client->update($new_name);
+
+          $result = $test_client->getName();
+
+          $this->assertEquals($new_name, $result);
+
+        }
+
     }
 
  ?>
