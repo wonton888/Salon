@@ -5,16 +5,18 @@
     </head>
     <body>
         <div class="container">
-            <form action="/client/{{ client.getId }}" method="post">
+            <form action="/client/{{ client.getId }}/update" method="post">
 
-                <label for="client_name">Edit you Client's name</label>
+                <input type="hidden" name="_method" value="patch">
+
+                <label for="client_name">Update your Client's name</label>
                 <input type="client_name" name="client_name" type="text">
 
                 <button type="submit">Update</button>
             </form>
 
-            <form  action="/client/{{ client.getId }}" method="post">
-                <input type="_method" name="name" value="delete">
+            <form  action="/client/{{ client.getId }}/delete" method="post">
+                <input name="_method" type="hidden" value="delete">
 
                 <button type="submit">Delete!</button>
 

@@ -42,7 +42,7 @@
     });
 
     $app->get("/stylists/{id}/edit", function($id) use ($app){
-      $stylist = Stylist::find(id);
+      $stylist = Stylist::find($id);
       return $app['twig']->render('stylist_edit.html.twig', array('stylist' => $stylist));
     });
 
@@ -70,11 +70,11 @@
 
     $app->get("/client/{id}/edit", function($id) use ($app){
       $client = Client::find($id);
-      return $app['twig']->render('client.html.twig', array('client' => $client));
+      return $app['twig']->render('client_edit.html.twig', array('client' => $client));
     });
 
-    $app->patch("/client/{id}/update", function() use ($app){
-      $new_name = $_POST['name'];
+    $app->patch("/client/{id}/update", function($id) use ($app){
+      $new_name = $_POST['client_name'];
       $client_update = Client::find($id);
       $client_update->update($new_name);
       $stylist = Stylist::find($client_update->getStylistId());
