@@ -34,8 +34,8 @@ class Stylist
      {
          $returned_stylists = $GLOBALS['DB']->query("SELECT * FROM stylists");
          $stylists = array();
-         if (is_array($returned_stylists) || is_object($returned_stylists))
-         {
+        //  if (is_array($returned_stylists) || is_object($returned_stylists))
+        //  {
          foreach ($returned_stylists as $stylist){
              $id = $stylist['id'];
              $name = $stylist['name'];
@@ -43,7 +43,7 @@ class Stylist
              array_push($stylists, $new_stylist);
          }
          return $stylists;
-         }
+        //  }
      }
 
      static function deleteAll()
@@ -81,7 +81,8 @@ class Stylist
      {
          $clients = Array();
          $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients WHERE stylist_id = {$this->getId()};");
-         foreach ($returned_clients as $client)
+         $returned_clients2 = $returned_clients->fetchAll(PDO::FETCH_ASSOC);
+         foreach ($returned_clients2 as $client)
          {
             $id = $client['id'];
             $client_name = $client['client_name'];

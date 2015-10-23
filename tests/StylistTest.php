@@ -66,10 +66,11 @@
             $test_stylist->save();
 
             $name2 = "Stylist B";
-            $test_stylist2 = new Stylist($name);
+            $test_stylist2 = new Stylist($name2);
             $test_stylist2->save();
 
             $result = Stylist::getAll();
+            var_dump($result);
 
             $this->assertEquals([$test_stylist, $test_stylist2], $result);
         }

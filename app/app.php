@@ -78,6 +78,7 @@
       $client_update = Client::find($id);
       $client_update->update($new_name);
       $stylist = Stylist::find($client_update->getStylistId());
+      var_dump($client_update);
       return $app['twig']->render('stylist.html.twig', array('stylist'=>$stylist, 'clients'=>$stylist->getClients()));
     });
     $app->delete("/client/{id}/delete", function($id) use ($app){
